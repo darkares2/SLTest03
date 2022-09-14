@@ -13,12 +13,13 @@ public class UnitTestTransportPriceCalculator
     [InlineData(9,9,75)]
     [InlineData(10,10,100)]
     [InlineData(20,15,100)]
-    public void TestPrices(int distance, int weight, int price)
+    [InlineData(50,50,100)]
+    public void Transport_distance_and_weight_results_in_expected_price(int distance, int weight, int expectedPrice)
     {
         var sut = new TransportPriceCalculator();
 
         var result = sut.CalculateTransportPrice(distance, weight);
         
-        Assert.Equal(price, result);
+        Assert.Equal(expectedPrice, result);
     }
 }
